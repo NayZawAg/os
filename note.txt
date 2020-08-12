@@ -1,0 +1,24 @@
+Items Manage
+------------
+
+	- create resourfce route
+	- create controller (--resource)
+	- show route list (route:list)
+	- create blades (4 for GET Methods)
+	- call specified view from method
+	- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
