@@ -1,5 +1,5 @@
 @extends('backendtemplate')
-@section('title','Backend Index')
+@section('title','Item List')
 @section('content')
 
 

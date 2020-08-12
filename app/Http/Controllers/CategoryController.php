@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Brand;
-
-class BrandController extends Controller
+use App\Category;
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +13,7 @@ class BrandController extends Controller
      */
     public function index()
     {
-        return view ('backend.brands.index');
-    }
+        return view ('backend.categories.index');    }
 
     /**
      * Show the form for creating a new resource.
@@ -24,7 +22,7 @@ class BrandController extends Controller
      */
     public function create()
     {
-        return view ('backend.brands.create');
+        return view ('backend.categories.create');
     }
 
     /**
@@ -35,27 +33,30 @@ class BrandController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate
-        ([
-            'brand_name'=>'required',
-            'brand_photo'=>'required',
+         // Validation which is to check data input
+        $request->validate([
+            
+            'cate_name'=>'required',
+            'cate_photo'=>'required',            
         ]);
 
-        $imageName=time().'.'.$request->brand_photo->extension();
+        // If include file, upload
+        $imageName=time().'.'.$request->cate_photo->extension();
             
-        $request->brand_photo->move(public_path('backend/brandimg'),$imageName);
-        $myfile='backend/brandimg/'.$imageName;
+        $request->cate_photo->move(public_path('backend/categoryimg'),$imageName);
+        $myfile='backend/categoryimg/'.$imageName;
 
         // Data insert
-        $brand=new Brand; //setup class
+        $category=new Category; //setup class
         
-        $brand->name=$request->brand_name;
-        $brand->photo=$myfile;
+        $category->name=$request->cate_name;
+        $category->photo=$myfile;
         
-        $brand->save();
+        $category->save();
 
         // Redirect
-        return redirect()->route('brands.index');
+        return redirect()->route('categories.index');
+
     }
 
     /**
@@ -66,7 +67,7 @@ class BrandController extends Controller
      */
     public function show($id)
     {
-        return view ('backend.brands.show');
+         return view ('backend.categories.show');
     }
 
     /**
@@ -77,7 +78,7 @@ class BrandController extends Controller
      */
     public function edit($id)
     {
-       return view ('backend.brands.edit');
+         return view ('backend.categories.show');
     }
 
     /**

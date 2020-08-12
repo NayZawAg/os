@@ -1,13 +1,18 @@
 Items Manage
 ------------
 
-	- create resourfce route
+	- create resource route
 	- create controller (--resource)
 	- show route list (route:list)
 	- create blades (4 for GET Methods)
 	- call specified view from method
-	- 
-
+	- use store method (form action)
+		- dd()
+		- validation
+		- if include image, upload
+		- data insert
+		- redirect -> (index)
+	- show in database
 
 
 

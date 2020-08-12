@@ -64,7 +64,7 @@
 			</div>
 			<div class="form-group">
 				<label for="sub_cat">Sub Category</label>
-				<select name="subcategory_id" class="form-control">
+				<select name="subcategory_id" class="form-control" id="sub_cat">
 					<optgroup label="Choose Subcategory">
 						@foreach($subcategories as $subcategory)
 						<option value="{{$subcategory->id}}">{{$subcategory->name}}</option>
