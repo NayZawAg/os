@@ -22,14 +22,26 @@ Items Manage
 -	Validation Error, Delete Image if upload new image
 - 	Only brand table
 
-UI
---
--	Filter Item Page
-- 	Item Detail Page
+14-8-2020
+---------
+Frontend
+-	Filter Item Page (data binding)
+- 	Item Detail Page need to insert add to cart
 -	Checkout Page
--	Profile Page
--	Login Page
--	Register Page
+-	Profile Page (link /retrive)
+-	auth(multi role)
+
+Backend
+HW {
+-	order retrieve
+	- (backend/orders)
+	- creat view (index.blade.php)
+	- show table (order list)
+	- OrderController / index
+
+- RUD (category/subcategory)
+}HW
+
 
 
 

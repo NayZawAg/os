@@ -7,6 +7,8 @@ use App\Brand;
 
 class BrandController extends Controller
 {
+
+   
     /**
      * Display a listing of the resource.
      *
@@ -77,7 +79,10 @@ class BrandController extends Controller
      */
     public function edit($id)
     {
-       return view ('backend.brands.edit');
+        $brand=Brand::find($id); 
+       
+        return view ('backend.brands.edit',compact('brand'));
+       
     }
 
     /**
@@ -89,7 +94,34 @@ class BrandController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'item_name'=>'required',
+            'item_photo'=>'sometimes',
+            
+        ]);
+        //if include file, upload
+        if ($request->hasFile('brand_photo')) {
+          
+         $imageName=time().'.'.$request->brand_photo->extension();
+            
+        $request->brand_photo->move(public_path('backend/brandimg'),$imageName);
+        $myfile='backend/brandimg/'.$imageName;
+        }
+
+        //delete old photo (unlink)
+        else{
+            $myfile=$request->oldphoto;
+        }
+        //data update
+        $brand= Brand::find($id); //setup class
+       
+        $brand->name=$request->brand_name;
+        $brand->photo=$myfile;
+        
+        $brand->save();
+
+        // Redirect
+        return redirect()->route('brands.index');
     }
 
     /**
