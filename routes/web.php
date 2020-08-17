@@ -47,6 +47,7 @@ Route::resource('subcategories', 'SubcategoryController');
 // End Backend-------------------------------------------------------------
 Route::resource('orders','OrderController');
 
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -141,7 +141,7 @@ class ItemController extends Controller
         
         $myfile='backend/itemimg/'.$imageName;
         // dd($request->oldphoto);
-        // unlink($request->oldphoto);
+        @unlink($request->oldphoto);
         }
     
 
@@ -177,6 +177,7 @@ class ItemController extends Controller
         $item->delete();
         // unlink($item->photo);
         //redirect
+        @unlink($item->oldphoto);
         return redirect()->route('items.index');
 
     }

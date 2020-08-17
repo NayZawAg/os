@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use App\Item;
 use App\Subcategory;
 
@@ -43,6 +44,7 @@ class FrontendController extends Controller
 
     public function profile($value='')
     {
+        
     	return view('frontend.profile');
     }
 

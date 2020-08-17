@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Order;
+use App\Item;
 
 class OrderController extends Controller
 {
@@ -47,7 +48,12 @@ class OrderController extends Controller
         $cartArr=json_decode($request->shop_data);
         $total=0;
         foreach ($cartArr as $row) {
+            if ($row->discount) {
+            $total+=($row->discount * $row->qty);
+            }
+            else{
             $total+=($row->price * $row->qty);
+            }
         }
         $order=new Order;
         $order->voucherno= uniqid() ; //output unique id
@@ -75,7 +81,9 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        //
+        $order=Order::find($id);
+        $items=Item::all();
+        return view ('backend.orders.show', compact('order','items'));
     }
 
     /**
