@@ -27,8 +27,7 @@
           				<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
           					<thead>
           						<tr>
-          							<th>Voucher No</th>
-          							<th>Name</th>
+          							<th>Voucher No</th>		
           							<th>Total</th>
           							<th>Order Date</th>
           							<th>Notes</th>
@@ -37,8 +36,7 @@
           					</thead>
           					<tfoot>
           						<tr>
-          							<th>Voucher No</th>
-          							<th>Name</th>
+          							<th>Voucher No</th>		
           							<th>Total</th>
           							<th>Order Date</th>
           							<th>Notes</th>
@@ -51,10 +49,11 @@
           						
           						<tr>
           							<td>{{$order->voucherno}}</td>
-          							<td>{{$order->user_id}}</td>
-          							<td>{{$order->total}}</td>
+                                             <td>{{$order->total}}</td>
           							<td>{{$order->orderdate}}</td>
           							<td>{{$order->note}}</td>
+                                             <td><a href="{{route('orders.show',$order->id)}}" class="btn btn-primary">Detail</a>
+                                                  </td>
           						</tr>
           						@endforeach	
           					</tbody>
