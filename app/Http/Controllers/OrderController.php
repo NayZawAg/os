@@ -8,6 +8,11 @@ use App\Order;
 
 class OrderController extends Controller
 {
+    public function __construt($value='')
+    {
+       $this->middleware('role:admin')->except('store');
+       $this->middleware('role:customer')->only('store');
+    }
     /**
      * Display a listing of the resource.
      *
