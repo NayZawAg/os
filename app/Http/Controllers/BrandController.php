@@ -16,7 +16,9 @@ class BrandController extends Controller
      */
     public function index()
     {
-        return view ('backend.brands.index');
+        $brands=Brand::all();
+        // dd($brands);
+        return view ('backend.brands.index',compact('brands'));
     }
 
     /**
@@ -95,8 +97,8 @@ class BrandController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'item_name'=>'required',
-            'item_photo'=>'sometimes',
+            'brand_name'=>'required',
+            'brand_photo'=>'sometimes',
             
         ]);
         //if include file, upload
@@ -132,6 +134,9 @@ class BrandController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $brand=Brand::find($id);
+        $brand->delete();
+        //redirect
+        return redirect()->route('brands.index');
     }
 }

@@ -15,7 +15,9 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        $orders=Order::all();
+        // dd($items);
+        return view ('backend.orders.index',compact('orders'));
     }
 
     /**

@@ -134,13 +134,16 @@ class ItemController extends Controller
         ]);
         //if include file, upload
         if ($request->hasFile('item_photo')) {
-          
-         $imageName=time().'.'.$request->item_photo->extension();
-            
-        $request->item_photo->move(public_path('backend/itemimg'),$imageName);
-        $myfile='backend/itemimg/'.$imageName;
+       
+        $imageName=time().'.'.$request->item_photo->extension();
         
+        $request->item_photo->move(public_path('backend/itemimg'),$imageName);
+        
+        $myfile='backend/itemimg/'.$imageName;
+        // dd($request->oldphoto);
+        // unlink($request->oldphoto);
         }
+    
 
         //delete old photo (unlink)
         else{
@@ -172,6 +175,7 @@ class ItemController extends Controller
     {
         $item=Item::find($id);
         $item->delete();
+        // unlink($item->photo);
         //redirect
         return redirect()->route('items.index');
 

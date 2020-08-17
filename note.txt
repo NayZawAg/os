@@ -42,6 +42,14 @@ HW {
 - RUD (category/subcategory)
 }HW
 
+17-8-2020
+----------
+Frotend
+	- filter item page (data binding)
+	- profile UI
+
+Backend
+	- order detail
 
 
 

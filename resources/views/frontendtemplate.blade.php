@@ -38,9 +38,9 @@
           {{-- <li class="nav-item">
             <a class="nav-link" href="#">About</a>
           </li> --}}
-         {{--  <li class="nav-item">
-            <a class="nav-link" href="{{route('itemfilterpage')}}">Services</a>
-          </li> --}}
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('itemfilterpage')}}">Item Filter</a>
+          </li>
 
           {{-- <li class="nav-item">
             <a class="nav-link" href="#">Contact</a>
@@ -99,16 +99,7 @@
 
     <div class="row">
 
-      <div class="col-lg-3">
-
-        <h1 class="my-4">Shop Name</h1>
-        <div class="list-group">
-          <a href="{{route('itemfilterpage')}}" class="list-group-item">Category 1</a>
-          <a href="#" class="list-group-item">Category 2</a>
-          <a href="#" class="list-group-item">Category 3</a>
-        </div>
-
-      </div>
+      @yield('sidebar')
       <!-- /.col-lg-3 -->
 
       @yield('content')
